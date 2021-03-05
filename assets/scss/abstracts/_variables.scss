@@ -1,0 +1,20 @@
+$color-primary: #ec6f6a;
+$color-secondry: #09383e;
+$color-gray: #acbbd0;
+$color-white: #fff;
+$color-bg-gray: #eaf2ff;
+$color-bg-red: #ff0044;
+$color-red: #ff0044;
+$border-thin: 3px solid #000;
+$border-med: 8px solid #000;
+
+:root {
+  --color-primary: #{$color-primary};
+  --color-secondry: #{$color-secondry};
+  --color-red: #{$color-red};
+  --color-gray: #{$color-gray};
+  --color-bg-red: #{$color-bg-red};
+  --color-white: #{$color-white};
+  --border-thin: #{$border-thin};
+  --border-med: #{$border-med};
+}

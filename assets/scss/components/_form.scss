@@ -1,0 +1,43 @@
+.form-group {
+  position: relative;
+  margin-bottom: 2.5rem;
+
+  .col-form-label {
+    position: absolute;
+    z-index: -1;
+    top: 50%;
+    right: 1rem;
+    width: 30%;
+    transform: translateY(-50%);
+    border: none;
+    color: $color-gray;
+    transition: all 0.3s;
+    padding: 0 0.5rem;
+  }
+
+  &:focus-within {
+    .col-form-label {
+      z-index: 999;
+      top: 2%;
+      background: $color-white;
+      color: $color-primary;
+    }
+  }
+}
+
+.form-control {
+  padding: 1.8rem 1rem;
+  border-radius: 10px;
+  border: 1px solid $color-gray;
+  outline: none;
+  background: transparent;
+
+  &:focus {
+    outline: none;
+    box-shadow: none;
+  }
+}
+
+.search_input {
+  border-radius: 5rem;
+}

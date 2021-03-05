@@ -1,28 +1,28 @@
 <template>
   <div class="table_paginator">
-    <template v-if="paginationOptions.visualStyle === 'select'">
-      <span>Page </span>
-      <select @change="onChange">
-        <option
-          v-for="index in totalPages"
-          :value="index"
-          :key="index"
-          :selected="index == page"
-        >
-          {{ index }}
-        </option>
-      </select>
-      <span> of {{ totalPages }}</span>
-    </template>
-    <template v-else>
-      <Button v-if="prevPage > 0" @clickFn="goToPage(prevPage)">Prev</Button>
+    <template>
+      <Button
+        bgOrangeTrasparent
+        roundedRadius
+        v-if="prevPage > 0"
+        @clickFn="goToPage(prevPage)"
+      >
+        <span>&#8592;</span>
+      </Button>
 
       <span
         >Page <strong>{{ page }}</strong> of {{ totalPages }}</span
       >
 
-      <Button v-if="nextPage <= totalPages" @clickFn="goToPage(nextPage)"
-        >Next
+      <Button
+        bgOrangeTrasparent
+        roundedRadius
+        v-if="nextPage <= totalPages"
+        @clickFn="goToPage(nextPage)"
+      >
+        <span>
+          &#8594;
+        </span>
       </Button>
     </template>
   </div>

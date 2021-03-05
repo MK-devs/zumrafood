@@ -32,4 +32,22 @@
       }
     }
   }
+
+  .table_paginator {
+    margin: 1rem 0;
+
+    button {
+      position: relative;
+      bottom: 2px;
+      margin: 0.5rem;
+
+      span {
+        position: relative;
+        bottom: 3px;
+        font-size: 2em;
+        font-weight: bold;
+        vertical-align: middle;
+      }
+    }
+  }
 }

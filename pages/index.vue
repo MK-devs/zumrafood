@@ -1,5 +1,5 @@
 <template>
-  <div class="landing_page">
+  <div class="page_wrap login_page">
     <nav>
       <div class="nav__item">
         <div class="nav__logo">
@@ -8,7 +8,9 @@
       </div>
       <div class="nav__item">
         <div class="nav__link"></div>
-        <Button bgOrangeTrasparent @clickFn="$router.push('/')">Login</Button>
+        <Button bgOrangeTrasparent @clickFn="$router.push('/login')"
+          >Login</Button
+        >
       </div>
     </nav>
 

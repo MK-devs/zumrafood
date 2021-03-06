@@ -9,7 +9,8 @@
       small_radius: smallRadius,
       rounded_radius: roundedRadius,
       block: block,
-      bg_orange_trasparent: bgOrangeTrasparent
+      bg_orange_trasparent: bgOrangeTrasparent,
+      bg_orange: bgOrange
     }"
     @click="$emit('clickFn')"
   >
@@ -27,7 +28,8 @@ export default {
     disabled: Boolean,
     smallRadius: Boolean,
     roundedRadius: Boolean,
-    bgOrangeTrasparent: Boolean
+    bgOrangeTrasparent: Boolean,
+    bgOrange: Boolean
   }
 };
 </script>

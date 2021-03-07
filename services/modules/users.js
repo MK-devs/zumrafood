@@ -20,10 +20,22 @@ function editUser(id, payload) {
     });
 }
 
+function deleteUser(id) {
+  return axios
+    .delete(`/users/${id}`)
+    .then(data => {
+      return data.data;
+    })
+    .catch(e => {
+      console.log(e);
+    });
+}
+
 var axios = null;
 const usersAPIs = {
   getUsers,
-  editUser
+  editUser,
+  deleteUser
 };
 
 export default $axios => {

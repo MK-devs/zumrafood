@@ -1,31 +1,47 @@
 <template>
-  <div class="page_wrap">
-    <nav>
-      <div class="nav__item">
-        <div class="nav__logo">
-          <div class="nav__logoShape"></div>
-        </div>
-      </div>
-      <div class="nav__item">
-        <div class="nav__link"></div>
-        <Title small orange>Login Page</Title>
-      </div>
-    </nav>
-
+  <div class="login_page">
     <div class="content">
       <section class="main__text">
-        <form>
-          <Login />
-        </form>
+        <Login
+          @successHandler="handleSuccessCase($event)"
+          @errHandler="handleErrCase($event)"
+        />
+
+        <div class="response_msg">
+          <Title
+            center
+            small
+            :success="successMsg ? true : false"
+            :danger="errMsg ? true : false"
+            >{{ successMsg ? successMsg : errMsg }}</Title
+          >
+        </div>
       </section>
     </div>
-
-    <section class="content__bottom">
-      <div class="content__btm__item "></div>
-      <div class="content__btm__item "></div>
-      <div class="content__btm__item "></div>
-      <div class="content__btm__item "></div>
-      <div class="content__btm__item "></div>
-    </section>
   </div>
 </template>
+
+<script>
+export default {
+  middleware: "login",
+
+  data() {
+    return {
+      successMsg: null,
+      errMsg: null
+    };
+  },
+
+  methods: {
+    handleSuccessCase(event) {
+      this.successMsg = event;
+      this.errMsg = null;
+    },
+
+    handleErrCase(event) {
+      this.errMsg = event;
+      this.successMsg = null;
+    }
+  }
+};
+</script>

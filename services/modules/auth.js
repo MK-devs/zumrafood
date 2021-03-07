@@ -1,11 +1,11 @@
-function login() {
+function login(payload) {
   return axios
-    .post("/login")
+    .post("/login", payload)
     .then(data => {
       return data;
     })
     .catch(e => {
-      console.log(e);
+      return e.response;
     });
 }
 

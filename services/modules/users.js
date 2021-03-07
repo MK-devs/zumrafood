@@ -9,9 +9,21 @@ function getUsers() {
     });
 }
 
+function editUser(id, payload) {
+  return axios
+    .put(`/users/${id}`, payload)
+    .then(data => {
+      return data.data;
+    })
+    .catch(e => {
+      console.log(e);
+    });
+}
+
 var axios = null;
 const usersAPIs = {
-  getUsers
+  getUsers,
+  editUser
 };
 
 export default $axios => {

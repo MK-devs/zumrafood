@@ -9,13 +9,6 @@
         height: 48px;
         text-align: left;
         font-size: 1em;
-        cursor: pointer;
-        &:hover {
-          span {
-            text-decoration: underline;
-            text-decoration-style: dotted;
-          }
-        }
       }
     }
     tbody {

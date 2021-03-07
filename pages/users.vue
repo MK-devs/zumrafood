@@ -8,6 +8,51 @@
             <td>{{ row.email }}</td>
             <td>{{ row.first_name + " " + row.last_name }}</td>
             <td><img :src="row.avatar" alt="" /></td>
+            <td>
+              <Button bgOrangeTrasparent @clickFn="showEditUserModal(row.id)"
+                >Edit</Button
+              >
+              <Button bgOrange>Delete</Button>
+            </td>
+
+            <div class="edit_modal" :class="'edit_modal_' + row.id">
+              <div class="modal_body form">
+                <form @submit.prevent.stop="editUser(row)">
+                  <div class="input">
+                    <input
+                      v-model="row.first_name"
+                      type="text"
+                      placeholder="Name"
+                      required
+                    />
+                  </div>
+
+                  <div class="input">
+                    <input
+                      v-model="row.last_name"
+                      type="text"
+                      placeholder="Name"
+                      required
+                    />
+                  </div>
+
+                  <div class="input">
+                    <input
+                      v-model="row.email"
+                      type="email"
+                      placeholder="Email"
+                      required
+                    />
+                  </div>
+
+                  <Button bgOrange type="submit">Save Changes</Button>
+                </form>
+              </div>
+
+              <div class="close_modal">
+                <Button bgOrange @clickFn="hideModal(row.id)">Close</Button>
+              </div>
+            </div>
           </template>
 
           <template v-slot:no-data>
@@ -21,6 +66,7 @@
 <script>
 export default {
   middleware: "users",
+  layout: "users",
 
   mounted() {
     this.$api.users
@@ -54,6 +100,11 @@ export default {
           label: "Avatar",
           field: "avatar",
           type: "String"
+        },
+        {
+          label: "Action",
+          field: "action",
+          type: "String"
         }
       ],
 
@@ -61,6 +112,33 @@ export default {
         itemsPerPage: 7
       }
     };
+  },
+
+  methods: {
+    showEditUserModal(id) {
+      document.getElementsByClassName(`edit_modal_${id}`)[0].style.display =
+        "block";
+    },
+
+    hideModal(id) {
+      document.getElementsByClassName(`edit_modal_${id}`)[0].style.display =
+        "none";
+    },
+
+    editUser(row) {
+      const payload = {
+        first_name: row.first_name,
+        last_name: row.last_name,
+        email: row.email
+      };
+
+      this.$api.users
+        .editUser(row.id, payload)
+        .then(res => {
+          console.log(res);
+        })
+        .catch(e => console.log(e));
+    }
   }
 };
 </script>
